@@ -19,7 +19,7 @@ Patch2: libgpio-lib64.patch
 
 ##### ADDITIONAL DEFINITIONS #####
 
-BuildRequires:	libusb-devel
+BuildRequires:	libusb-devel automake1.7
 BuildRoot: %{_tmppath}/%{name}-buildroot
 
 ##### SUB-PACKAGES #####
