@@ -46,15 +46,11 @@ This package contains all files which one needs to compile programs using
 the "%{libname}" library.
 
 
-##### PREP #####
-
 %prep
 %setup -q -n libgpio
 %patch -p1 -b .alpha
 %patch1 -p1 -b .includes
 %patch2 -p1 -b .lib64
-
-##### BUILD #####
 
 %build
 # "autogen" is needed because we have a CVS snapshot.
@@ -79,26 +75,17 @@ rm -rf $RPM_BUILD_ROOT
 #cp *.txt $RPM_BUILD_ROOT%{_defaultdocdir}/%{name}
 
 
-##### PRE/POST INSTALL SCRIPTS #####
-
-%post -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
-
-##### CLEAN UP #####
+%post -n %{libname} -p /sbin/ldconfig
+%postun -n %{libname} -p /sbin/ldconfig
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-
-##### FILE LISTS FOR ALL BINARY PACKAGES #####
-
-##### %{libname}
 %files -n %{libname}
 %defattr(-,root,root)
 %{_libdir}/*.so.*
 %{_libdir}/gpio/*.so.*
 
-##### %{libname}-devel
 %files -n %{libname}-devel
 %defattr(-,root,root)
 %{_libdir}/*.so
@@ -110,6 +97,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/gpio/*.a
 %{_bindir}/*
 %{_includedir}/gpio/*
-
-##### CHANGELOG #####
-
