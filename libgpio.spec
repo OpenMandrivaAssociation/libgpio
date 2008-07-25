@@ -6,7 +6,7 @@
 Summary:	I/O library for GPhoto 2.x
 Name:		libgpio
 Version:	0.0.2
-Release:	%mkrel 14
+Release:	%mkrel 16
 License:	LGPL
 Group:		Graphics
 
