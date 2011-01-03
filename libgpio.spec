@@ -6,7 +6,7 @@
 Summary:	I/O library for GPhoto 2.x
 Name:		libgpio
 Version:	0.0.2
-Release:	%mkrel 16
+Release:	%mkrel 17
 License:	LGPL
 Group:		Graphics
 
@@ -19,7 +19,7 @@ Patch2: libgpio-lib64.patch
 
 ##### ADDITIONAL DEFINITIONS #####
 
-BuildRequires:	libusb-devel automake1.7
+BuildRequires:	libusb-devel automake
 BuildRoot: %{_tmppath}/%{name}-buildroot
 
 ##### SUB-PACKAGES #####
@@ -56,9 +56,9 @@ the "%{libname}" library.
 # "autogen" is needed because we have a CVS snapshot.
 # (cjw) do not run autogen.sh directly
 libtoolize --copy --force
-aclocal-1.7
+aclocal
 autoheader
-automake-1.7 -a -c --gnu
+automake -a -c --gnu
 autoconf
 
 %configure
