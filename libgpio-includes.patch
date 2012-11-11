@@ -1,0 +1,9 @@
+--- libgpio/libgpio/library.c.includes	2000-09-14 14:45:59.000000000 -0400
++++ libgpio/libgpio/library.c	2002-11-26 09:48:08.000000000 -0500
+@@ -1,5 +1,6 @@
+ #include <sys/types.h>
+ #include <stdio.h>
++#include <string.h>
+ 
+ #include "gpio.h"
+ #include "library.h"

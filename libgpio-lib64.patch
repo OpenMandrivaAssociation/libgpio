@@ -1,0 +1,77 @@
+--- libgpio/usb/Makefile.am.lib64	2000-11-15 11:45:52.000000000 -0500
++++ libgpio/usb/Makefile.am	2002-11-26 09:58:36.000000000 -0500
+@@ -5,7 +5,7 @@ CFLAGS = @CFLAGS@ @IOLIB_CFLAGS@ -g `lib
+ LDFLAGS = @LDFLAGS@ -g `libusb-config --libs`
+ 
+ ## Compile the IO library into a shared library
+-iolibdir = $(prefix)/lib/gpio
++iolibdir = $(libdir)/gpio
+ iolib_LTLIBRARIES = libgpio_usb.la
+ libgpio_usb_la_LDFLAGS = -version-info @LIBGPIO_VERSION_INFO@
+ libgpio_usb_la_SOURCES = libusb.c
+--- libgpio/libgpio/Makefile.am.lib64	2000-11-15 11:45:52.000000000 -0500
++++ libgpio/libgpio/Makefile.am	2002-11-26 10:02:16.000000000 -0500
+@@ -2,7 +2,7 @@
+ INCLUDES = -I../ $(VERSION_FLAGS) -I$(top_srcdir)/include
+ VERSION_FLAGS = -DLIBGPIO_VERSION=\"@LIBGPIO_VERSION@\"
+ CFLAGS = @CFLAGS@ @IOLIB_CFLAGS@ \
+-	-DIOLIBS=\"$(prefix)/lib/gpio\" \
++	-DIOLIBS=\"$(libdir)/gpio\" \
+ 	-g
+ LDFLAGS = @LDFLAGS@ -g -ldl
+ 
+--- libgpio/parallel/Makefile.am.lib64	2000-11-15 11:45:52.000000000 -0500
++++ libgpio/parallel/Makefile.am	2002-11-26 09:58:36.000000000 -0500
+@@ -5,7 +5,7 @@ CFLAGS = @CFLAGS@ @IOLIB_CFLAGS@ -g
+ LDFLAGS = @LDFLAGS@ -g 
+ 
+ ## Compile the IO library into a shared library
+-iolibdir = $(prefix)/lib/gpio
++iolibdir = $(libdir)/gpio
+ iolib_LTLIBRARIES = libgpio_parallel.la
+ libgpio_parallel_la_LDFLAGS = -version-info @LIBGPIO_VERSION_INFO@ -DHAVE_TERMIOS_H 
+ libgpio_parallel_la_SOURCES = unix.c gpio-parallel.h
+--- libgpio/ieee1394/Makefile.am.lib64	2000-11-15 11:45:52.000000000 -0500
++++ libgpio/ieee1394/Makefile.am	2002-11-26 09:58:36.000000000 -0500
+@@ -5,7 +5,7 @@ CFLAGS = @CFLAGS@ @IOLIB_CFLAGS@ -g
+ LDFLAGS = @LDFLAGS@ -g
+ 
+ ## Compile the IO library into a shared library
+-iolibdir = $(prefix)/lib/gpio
++iolibdir = $(libdir)/gpio
+ iolib_LTLIBRARIES = libgpio_ieee1394.la
+ libgpio_ieee1394_la_LDFLAGS = -version-info @LIBGPIO_VERSION_INFO@ -DHAVE_TERMIOS_H 
+ libgpio_ieee1394_la_SOURCES = linux-raw.c gpio-ieee1394.h
+--- libgpio/network/Makefile.am.lib64	2000-11-15 11:45:52.000000000 -0500
++++ libgpio/network/Makefile.am	2002-11-26 09:58:36.000000000 -0500
+@@ -5,7 +5,7 @@ CFLAGS = @CFLAGS@ @IOLIB_CFLAGS@ -g
+ LDFLAGS = @LDFLAGS@ -g 
+ 
+ ## Compile the IO library into a shared library
+-iolibdir = $(prefix)/lib/gpio
++iolibdir = $(libdir)/gpio
+ iolib_LTLIBRARIES = libgpio_network.la
+ libgpio_network_la_LDFLAGS = -version-info @LIBGPIO_VERSION_INFO@ -DHAVE_TERMIOS_H 
+ libgpio_network_la_SOURCES = bsdsocket.c gpio-network.h
+--- libgpio/serial/Makefile.am.lib64	2002-11-26 09:58:36.000000000 -0500
++++ libgpio/serial/Makefile.am	2002-11-26 09:58:36.000000000 -0500
+@@ -5,7 +5,7 @@ CFLAGS = @CFLAGS@ @IOLIB_CFLAGS@ -g
+ LDFLAGS = @LDFLAGS@ -g 
+ 
+ ## Compile the IO library into a shared library
+-iolibdir = $(prefix)/lib/gpio
++iolibdir = $(libdir)/gpio
+ iolib_LTLIBRARIES = libgpio_serial.la
+ libgpio_serial_la_LDFLAGS = -version-info @LIBGPIO_VERSION_INFO@ -DHAVE_TERMIOS_H 
+ libgpio_serial_la_SOURCES = unix.c
+--- libgpio/gpio-config.in.lib64	2000-07-31 19:41:26.000000000 -0400
++++ libgpio/gpio-config.in	2002-11-26 09:58:36.000000000 -0500
+@@ -57,7 +57,7 @@ while test $# -gt 0; do
+        	;;
+ 
+     --libs)
+-       	echo -L@libdir@ @GPIO_LIBS@ @LIBS@
++       	echo @GPIO_LIBS@ @LIBS@
+        	;;
+ 
+     *)

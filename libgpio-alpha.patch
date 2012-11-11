@@ -1,0 +1,11 @@
+diff -ur libgpio.orig/serial/Makefile.am libgpio/serial/Makefile.am
+--- libgpio.orig/serial/Makefile.am	2000-11-15 11:45:52.000000000 -0500
++++ libgpio/serial/Makefile.am	2002-06-16 08:04:15.000000000 -0400
+@@ -1,6 +1,6 @@
+ ## Specify some includes and versioning
+ INCLUDES = -I../ $(VERSION_FLAGS) -I$(top_srcdir)/include
+-VERSION_FLAGS = -DLIBGPIO_VERSION=\"@LIBGPIO_VERSION@\" -DHAVE_TERMIOS_H
++VERSION_FLAGS = -DLIBGPIO_VERSION=\"@LIBGPIO_VERSION@\" -DHAVE_TERMIOS_H -D_BSD_SOURCE
+ CFLAGS = @CFLAGS@ @IOLIB_CFLAGS@ -g
+ LDFLAGS = @LDFLAGS@ -g 
+ 
