@@ -19,6 +19,9 @@ Patch2: libgpio-lib64.patch
 
 ##### ADDITIONAL DEFINITIONS #####
 
+BuildRequires:	autoconf
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
 BuildRequires:	libusb-devel automake
 BuildRoot: %{_tmppath}/%{name}-buildroot
 
